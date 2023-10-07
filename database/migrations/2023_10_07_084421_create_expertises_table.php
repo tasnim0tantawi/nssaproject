@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('expertises', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('projects_tags', function (Blueprint $table) {
             $table->id();
+            //project_id
+            $table->foreignId('project_id')
+                ->constrained()
+                ->onDelete('cascade');
+            //tag_id
+            $table->foreignId('tag_id')
+                ->constrained()
+                ->onDelete('cascade');
+            $table->unique(['project_id', 'tag_id']);
             $table->timestamps();
         });
     }

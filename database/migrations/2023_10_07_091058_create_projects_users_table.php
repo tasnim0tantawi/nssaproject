@@ -13,6 +13,24 @@ return new class extends Migration
     {
         Schema::create('projects_users', function (Blueprint $table) {
             $table->id();
+            // user_id 
+            $table->foreignId('user_id')
+                ->constrained()
+                ->onDelete('cascade');
+            // project_id
+            $table->foreignId('project_id')
+                ->constrained()
+                ->onDelete('cascade');
+            // role
+            $table->enum(
+                'role',
+                [
+                    'admin',
+                    'creator',
+                    'contributor'
+                ]
+            
+            )->default('contributor');
             $table->timestamps();
         });
     }

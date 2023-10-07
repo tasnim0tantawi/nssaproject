@@ -22,8 +22,7 @@ return new class extends Migration
                 'role',
                 [
                     'admin',
-                    'creator',
-                    'contributor'
+                    'user'
                 ]
             )->default('user');
             $table->rememberToken();

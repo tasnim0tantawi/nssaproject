@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             //title
             $table->string('title');
+            // user_id
+            $table->foreignId('owner_id')
+                ->constrained('users')
+                ->onDelete('cascade');
             //description
             $table->text('description');
             // level of difficulty
@@ -23,7 +27,6 @@ return new class extends Migration
             $table->text('scope');
             // objectives
             $table->text('objectives');
-        
             $table->timestamps();
         });
     }

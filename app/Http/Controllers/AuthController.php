@@ -29,6 +29,9 @@ class AuthController extends Controller
         $user->role = 'customer';
         $user->save();
 
+        // skills table (transaction insert)
+        $skills = $request->skills;
+        $user->skills()->attach($skills);
         $token = $user->createToken('api-token')->plainTextToken;
 
 

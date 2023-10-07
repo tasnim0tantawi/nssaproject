@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'role',
+
     ];
 
     /**
@@ -42,4 +45,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class, 'skills_users', 'user_id', 'skill_id');
+    }
 }

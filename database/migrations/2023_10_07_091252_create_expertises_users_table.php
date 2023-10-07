@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('creators', function (Blueprint $table) {
+        Schema::create('expertises_users', function (Blueprint $table) {
             $table->id();
-            // user_id
-            $table->foreignId('user_id')->constrained();
-
-
             $table->timestamps();
         });
     }
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('creators');
+        Schema::dropIfExists('expertises_users');
     }
 };
